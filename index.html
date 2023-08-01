@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <style>
+        /* Add a new CSS rule for the header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: slateblue;
+            padding: 10px;
+            z-index: 1; /* Place the header above other elements */
+        }
+
+        /* Style the h1 element inside the header */
+        header h1 {
+            padding-left: 20px;
+            margin: 0;
+            font-family: BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
+        }
+
+        /* Style the form element inside the header */
+        header form {
+            display: flex;
+            align-items: center;
+        }
+
+        /* Style the input elements inside the form */
+        header form input {
+            margin: 0 5px;
+        }
+
+        /* Style the search input to be flexible and grow when necessary */
+        header form input[type="text"] {
+            flex: 1;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            padding-top: 60px; /* Add padding to accommodate the fixed header */
+        }
+
+        main {
+            display: flex;
+            flex-wrap: wrap;
+            width: 100%;
+        }
+
+        .table-container {
+            flex: 1 1 calc(50% - 20px); /* Two tables side by side with some spacing */
+            padding: 10px;
+        }
+
+        .full-width-table {
+            flex-basis: 100%; /* Full-width table below the other two tables */
+            padding: 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        th,
+        td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #2196F3;
+            color: #fff;
+        }
+
+        tr:nth-child(odd) {
+            background-color: #f2f2f2;
+        }
+        #arrow {
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 30px 10px 0 10px;
+            border-color: #000000 transparent transparent transparent;
+            transform-origin: 50% 100%;
+            transition: transform 0.3s ease
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    <header id="header">
+        <h1 class="item">Weather ☀️</h1>
+        <form class="item" id="search">
+            <input autofocus id="city" type="text">
+            <input id="btn" type="submit" name="search" value="Search">
+        </form>
+    </header>
+    <br>
+    <div class="container"><h2 id="cityName">Delhi</h2></div>
+    <main>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Temperature</th>
+                        <th id="temp"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Feels like</td>
+                        <td id="feels_like"></td>
+                    </tr>
+                    <tr>
+                        <td>Max Temp</td>
+                        <td id="max_temp"></td>
+                    </tr>
+                    <tr>
+                        <td>Min Temp</td>
+                        <td id="min_temp"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Wind</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Wind Speed</td>
+                        <td id="wind_speed"></td>
+                    </tr>
+                    <tr>
+                        <td>Wind Direction</td>
+                        <td id="wind_degrees"></td>
+                    </tr>
+                    <tr>
+                        <td>— E</td>
+                        <td style="padding-left: 8px;"><p id = 'arrow'></p></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="full-width-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Sunrise</th>
+                        <th>Sunset</th>
+                        <th>Humidity</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td id="sunrise"></td>
+                        <td id="sunset"></td>
+                        <td id="humidity"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>
