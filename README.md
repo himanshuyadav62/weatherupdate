@@ -1,3 +1,2 @@
 # weatherupdate
-this website fetches weather update from rapid api 
-and shows in beautiful manner
+Go to website https://himanshuyadav62.github.io/weatherupdate/
